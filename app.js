@@ -1,4 +1,8 @@
-'use strict';
+(function () {
+   'use strict';
+}());
+
+require('./server/models/user.js');
 
 // define globals
 var express = require('express'),
@@ -11,10 +15,31 @@ var express = require('express'),
     favicon = require('static-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    config = require('./_config');
+
+
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var expressSession = require('express-session');
+var User = mongoose.model('users');
+
+
+
+// *** mongoose *** ///
+mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
+  if(err) {
+    console.log('Error connecting to the database. ' + err);
+  } else {
+    console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+  }
+});
+
+
 
 // set up our JSON API for later
-require('./routes/api')(app);
+require('./server/routes/api')(app);
 
 // set up our socket server
 require('./sockets/base')(io);

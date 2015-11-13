@@ -1,8 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('chatApp')
-    .directive('chatBox', function() {
+    app.directive('chatBox', function() {
         return {
             restrict: 'E',
             template: '<textarea style="width: 100%; height: 200px" ng-disable="true" ng-model="messageLog"></textarea>',

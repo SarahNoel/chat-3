@@ -1,4 +1,7 @@
-'use strict()';
+(function () {
+   'use strict';
+}());
+
 
   var express = require('express'),
       router = express.Router();

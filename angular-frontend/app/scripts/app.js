@@ -1,10 +1,10 @@
-'use strict';
+(function () {
+   'use strict';
+}());
 
-angular
-  .module('chatApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'btford.socket-io'
-  ])
-  .value('nickName', 'anonymous');
+var app = angular.module('chatApp', [
+                          'ngCookies',
+                          'ngResource',
+                          'ngSanitize',
+                          'btford.socket-io'
+                        ]).value('nickName', 'anonymous');

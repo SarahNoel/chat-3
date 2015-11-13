@@ -3,7 +3,7 @@ module.exports = function(app) {
 
   /* GET users listing. */
   app.get('/api/test', function(req, res) {
-    res.send([
+    res.json([
       {
         a: 'b',
         c: 'd'
